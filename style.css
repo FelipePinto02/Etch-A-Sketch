@@ -7,8 +7,6 @@
     width: 600px;
     display: grid;
     justify-content: end;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
 }
 .square {
     border: solid black 1px;
