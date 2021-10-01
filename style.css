@@ -1,10 +1,77 @@
+header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    padding: 25px 0px; 
+    border-bottom: solid 5px #116927d9;
+    width: 100%;
+    background-color: #b0d9f3;
+    color: #012225d9;
+    font-size: 25px;
+}
+
 .container {
-    border: solid black 1px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
     position: relative;
-    top: 250px;
-    margin: auto;
+    top: 200px;
+    height: 50%;
+    justify-items: center;
+}
+
+.container-grid {
+    border: solid black 1px;
     height: 600px;
     width: 600px;
     display: grid;
     justify-content: end;
+    grid-column: 6;
+}
+
+.container-buttons {
+    border: solid black 1px;
+    height: 600px;
+    width: 250px;
+    grid-column: 4;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 65px repeat(3, 1fr);
+    justify-items: center;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    position: relative;
+    top: 65px;
+}
+
+.container-title {
+    grid-row: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+.container-content {
+    align-items: center;
+}
+
+#eraser-btn {
+    grid-row: 3;
+}
+
+.restart-btn {
+    grid-row: 4;
+}
+
+.active {
+    background-color: black;
+    color: white;
 }
