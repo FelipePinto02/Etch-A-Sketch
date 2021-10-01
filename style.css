@@ -87,3 +87,36 @@ button:hover {
 .cleared {
     transition-duration: 0.4s;
 }
+
+.size-selectors {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.size-selection {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.size-selection label {
+    position: relative;
+    margin: auto;
+    bottom: 5px;
+    font-size: 22px;
+}
+
+.size-selectors p {
+    margin: auto;
+    font-size: 20px;
+}
+
+.size-selectors input {
+    width: 100%;
+}
+
+.size-selectors button {
+    position: relative; 
+    top: 12px; 
+    grid-row: 2;
+}

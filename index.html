@@ -20,7 +20,15 @@
             </div>
             <button id="clear-btn">Clear</button>
             <button class="unactive" id="eraser-btn">Eraser</button>
-            <button class="restart-btn">Restart</button>
+            <div class="size-selectors">
+                <div class="size-selection">
+                    <label>Select Grid Size</label>
+                    <input id="slider" type="range" value="16" min="1" max="100">
+                    <p id="slider-value">16x16</p>
+                </div>
+                <button id="apply-size">Apply</button>
+            </div>
+            
         </div>
     </div>
 </body>

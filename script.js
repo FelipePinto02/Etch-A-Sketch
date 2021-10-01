@@ -1,7 +1,9 @@
 const container = document.querySelector('.container-grid')
 let size = 16
-const restartBtn = document.querySelector('.restart-btn')
-restartBtn.addEventListener('click', restart)
+const slider = document.querySelector('#slider')
+const sliderValue = document.querySelector('#slider-value')
+const applySize = document.querySelector('#apply-size')
+applySize.addEventListener('click', restart)
 const eraserBtn = document.querySelector('#eraser-btn')
 eraserBtn.addEventListener('click', toggle)
 const clearBtn = document.querySelector('#clear-btn')
@@ -27,6 +29,15 @@ function unpaint(square) {
     square.classList.remove('cleared')
 }
 
+function clear() {
+    squares.forEach((square) => {
+    if (square.style.backgroundColor == 'black') {
+        square.classList.toggle('cleared')
+        square.style.backgroundColor = 'white'  
+    }
+    })
+}
+
 
 function start() {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
@@ -34,6 +45,9 @@ function start() {
     
     eraserBtn.addEventListener('click', eraser)
     clearBtn.addEventListener('click', clear)
+    slider.onmousemove = function(){
+        sliderValue.textContent = `${slider.value}x${slider.value}`
+    }
 
     let x=1
     while (x <= size*size) {
@@ -76,8 +90,7 @@ function restart() {
     while (container.firstChild) {
         container.removeChild(container.lastChild)
     }
-    size = window.prompt('Select size.(SxS)', 'S=')
-    size = parseInt(size)
+    size = slider.value
 
     if (eraserBtn.classList.contains('active')) {
         eraserBtn.classList.toggle('unactive')
