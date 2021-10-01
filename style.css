@@ -1,3 +1,7 @@
+body {
+    background-color: #a9bbb4;
+}
+
 header {
     position: absolute;
     top: 0px;
@@ -23,6 +27,7 @@ header {
 
 .container-grid {
     border: solid black 1px;
+    background-color: white;
     height: 600px;
     width: 600px;
     display: grid;
@@ -30,8 +35,9 @@ header {
     grid-column: 6;
 }
 
-.container-buttons {
+.container-settings {
     border: solid black 1px;
+    background-color: white;
     height: 600px;
     width: 250px;
     grid-column: 4;
@@ -46,6 +52,11 @@ button {
     height: 50px;
     position: relative;
     top: 65px;
+    background-color: #077ec9;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
 }
 
 .container-title {
@@ -55,7 +66,7 @@ button {
     left: 0px;
     width: 100%;
     border-bottom: 2px solid black;
-    background-color: aliceblue;
+    background-color: #bbdfff;
     text-align: center;
 }
 
@@ -63,15 +74,16 @@ button {
     align-items: center;
 }
 
-#eraser-btn {
-    grid-row: 3;
-}
-
-.restart-btn {
-    grid-row: 4;
-}
-
 .active {
-    background-color: black;
-    color: white;
+    background-color: rgb(27, 98, 252);
+}
+
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #59b9f5;
+    cursor: pointer;
+}
+
+.cleared {
+    transition-duration: 0.4s;
 }

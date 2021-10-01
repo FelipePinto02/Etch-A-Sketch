@@ -4,28 +4,28 @@ const restartBtn = document.querySelector('.restart-btn')
 restartBtn.addEventListener('click', restart)
 const eraserBtn = document.querySelector('#eraser-btn')
 eraserBtn.addEventListener('click', toggle)
+const clearBtn = document.querySelector('#clear-btn')
 
 function toggle() {
     if (eraserBtn.classList.contains('unactive')) {
-        eraserBtn.classList.remove('unactive')
-        eraserBtn.classList.add('active')
+        eraserBtn.classList.toggle('unactive')
+        eraserBtn.classList.toggle('active')
     }
     else if (eraserBtn.classList.contains('active')) {
-        eraserBtn.classList.remove('active')
-        eraserBtn.classList.add('unactive')
+        eraserBtn.classList.toggle('active')
+        eraserBtn.classList.toggle('unactive')
     }
 }
 
-
 function paint(square) {
     square.style.backgroundColor = 'black'
+    square.classList.remove('cleared')
 }
 
 function unpaint(square) {
     square.style.backgroundColor = 'white'
+    square.classList.remove('cleared')
 }
-
-
 
 
 function start() {
@@ -33,17 +33,17 @@ function start() {
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`
     
     eraserBtn.addEventListener('click', eraser)
-    
+    clearBtn.addEventListener('click', clear)
 
     let x=1
     while (x <= size*size) {
         const square = document.createElement('div');
-        square.className = "square";   
+        square.id = "square";   
         container.appendChild(square)
         x++
     }
 
-    const squares = document.querySelectorAll('.square')
+    const squares = document.querySelectorAll('#square')
     
     squares.forEach((square) => {
         square.onmouseover = function() {paint(square)}  
@@ -62,6 +62,14 @@ function start() {
         }
     }
 
+    function clear() {
+        squares.forEach((square) => {
+        if (square.style.backgroundColor == 'black') {
+            square.classList.toggle('cleared')
+            square.style.backgroundColor = 'white'  
+        }
+        })
+    }
 }
 
 function restart() {
@@ -71,23 +79,12 @@ function restart() {
     size = window.prompt('Select size.(SxS)', 'S=')
     size = parseInt(size)
 
-
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    container.style.gridTemplateRows = `repeat(${size}, 1fr)`
-
-    let x=1
-    while (x <= size*size) {
-        const square = document.createElement('div');
-        square.className = "square";   
-        container.appendChild(square)
-        x++
+    if (eraserBtn.classList.contains('active')) {
+        eraserBtn.classList.toggle('unactive')
+        eraserBtn.classList.toggle('active')
     }
-    
-    const squares = document.querySelectorAll('.square')
-    
-    squares.forEach((square) => {
-        square.onmouseover = function() {paint(square)}  
-    })  
+
+    start()  
 }
 
 start()
